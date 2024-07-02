@@ -22,7 +22,7 @@
             <br>The application is designed for Windows 10 but should work on most Windows versions. It is intended to be run on an old computer you might have lying around or a cheap PC stick. Simply connect this computer via HDMI to a TV or monitor mounted in portrait orientation. Right click your Windows Desktop and press Display Settings, then select Display Orientation to change computer to Portrait mode.
             <br>
             <br>
-            <p><font color="orange">Explore the different versions of openDraught 1.1 below. Each version is tailored to specific needs and provides unique functionalities. Click the buttons to download or view the source code on GitHub.</font>
+            <p><font color="orange">Explore the different versions of openDraught below. Each version is tailored to specific needs and provides unique functionalities. Click the buttons to download or view the source code on GitHub.</font>
             <br><br>
             <hr>
             <br><h2><font color="white">What does using openDraught look like?</h2>           
@@ -48,18 +48,18 @@
         </section>
         <section class="main-section">
             <div class="content">
-                <p><br><font color="yellow"><b>*Note:</b> No matter which version you choose, it is recommended to change the admin password and secure string. You can do this by opening server.js with a text editor (like Notepad)
+                <p><br><font color="yellow"><b>*Note:</b> No matter which version you choose, it is recommended to change the admin password and secure string. You can do this by editing the .env file using a text editor (like Notepad)
                     <br>
-                    <br>Then modify the const ADMIN_PASSWORD line and replacing your_secure_password with a password of your choice.
+                    <br>Replace <font color="orange">your_secure_password</font> with a password of your choice.
                     <br>
-                    <br>Followed by modifying the secret: line below that and replacing 
-                    <br>s2K7m1!xY9t#Vw$3b4E%Fg@8RkLpQ with a 30 character random string of your choice. There is a random string generator I've included in this project called random-string-gen, that will open in your web browser and let you generate a key to put in server.js.
+                    <br>Followed by modifying the SESSION_SECRET line below that and replacing 
+                    <br><font color="orange">uL{S!Dgo,;oMvD8%&j$c&~nrJ5?eUu</font> with a 30 character random string of your choice. There is a random string generator I've included in this project called random-string-gen, that will open in your web browser and let you generate a key to put in .env
             </p>
             </div>
         </section>
         <section class="main-section">
             <div class="content">
-                <h2><font color="white">openDraught 1.1 - Standalone version</font></h2>
+                <h2><font color="white">openDraught 1.3 - Standalone version</font></h2>
                 <br>
                 <p>This is the simplest version of openDraught. It includes an installer for Node.js, which installs the Node JavaScript runtime environment necessary to run openDraught. Once Node is installed, you can run openDraught. openDraught will display your taplist on a screen in your bar and create a mini server that makes your taplist accessible locally on your network (with a password). This allows your bartender or manager to use their phone to modify the taplist by entering the IP address and port into their phone's web browser.
                 <br>
@@ -67,10 +67,11 @@
             </p>
             </div>
             <div class="buttons">
-                <a href="https://github.com/taplists/openDraught/blob/main/openDraught-1.1-no-container-no-API.zip?raw=true" class="btn">Download Package</a>
-                <a href="https://github.com/taplists/openDraught/tree/main/openDraught-1.1-no-container-no-API-Taplist-Project" class="btn">View on GitHub</a>
+                <a href="https://github.com/taplists/openDraught/blob/main/openDraught-1.3-standalone.zip?raw=true" class="btn">Download Package</a>
+                <a href="https://github.com/taplists/openDraught/tree/main/openDraught-1.3-standalone" class="btn">View on GitHub</a>
             </div>
         </section>
+<!--
         <section class="main-section">
             <div class="content">
                 <h2><font color=white>openDraught 1.1 - Standalone with Google Reporting</font></h2>
@@ -86,9 +87,10 @@
                 <a href="https://github.com/taplists/openDraught/tree/main/openDraught-1.1-no-container-with-API-with-ChatFlow" class="btn">View on GitHub</a>
             </div>
         </section>
+-->                
         <section class="main-section">
             <div class="content">
-                <h2><font color=white>openDraught 1.1 - Containerized version</font></h2>
+                <h2><font color=white>openDraught 1.3 - Containerized version</font></h2>
                 <br>
                 <p>This is the most technical version of openDraught. It is the Standalone version that is also set up to be composed into a Docker container. Inside the project is a readme for setting up container hosting via DigitalOcean using their Droplets. openDraught uses virtually no resources making hosting a container little cost. Average cost to host this on DigitalOcean is $4/month.
                 <br>
@@ -96,8 +98,8 @@
              </p>
             </div>
             <div class="buttons">
-                <a href="https://github.com/taplists/openDraught/blob/main/openDraught-1.1-containerized.zip?raw=true" class="btn">Download Package</a>
-                <a href="https://github.com/taplists/openDraught/tree/main/openDraught-1.1-containerized" class="btn">View on GitHub</a>
+                <a href="https://github.com/taplists/openDraught/blob/main/openDraught-1.3-containerized.zip?raw=true" class="btn">Download Package</a>
+                <a href="https://github.com/taplists/openDraught/tree/main/openDraught-1.3-containerized" class="btn">View on GitHub</a>
             </div>
         </section>
     </main>
