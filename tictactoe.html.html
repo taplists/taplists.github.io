@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Three Piece Tic Tac Toe - Select Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Comic-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #202640, #050816 60%);
+      color: #f9fafb;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(13, 19, 38, 0.9);
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.25rem 1.25rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .title {
+      font-family: "Comic Neue", cursive;
+      text-align: center;
+      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      margin: 0 0 0.25rem;
+      color: #ffda7b;
+      text-shadow: 0 0 10px rgba(255, 218, 123, 0.6);
+    }
+
+    .subtitle {
+      text-align: center;
+      margin: 0 0 1.25rem;
+      font-size: 0.9rem;
+      color: #cbd5f5;
+    }
+
+    .modes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .card {
+      border-radius: 1rem;
+      padding: 0.9rem 0.95rem;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title span {
+      font-family: "Comic Neue", cursive;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      margin-bottom: 0.65rem;
+    }
+
+    .mode-meta {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .mode-meta strong {
+      color: #e5e7eb;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f9fafb;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.65);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(79, 70, 229, 0.8);
+      filter: brightness(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.7);
+      filter: brightness(0.98);
+    }
+
+    .footer-note {
+      margin-top: 1.2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .footer-note span {
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 480px) {
+      .shell {
+        padding: 1.25rem 1rem 1rem;
+        border-radius: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <h1 class="title">Three Piece Tic Tac Toe</h1>
+    <p class="subtitle">Pick how you want to play.</p>
+
+    <div class="modes">
+      <!-- Local mode -->
+      <div class="card">
+        <div class="card-title"><span>Same Device</span></div>
+        <div class="card-desc">
+          Two players take turns on one screen, using the same device.
+        </div>
+        <div class="btn-row">
+          <!-- Change local.html if your filename is different -->
+          <a href="local.html" class="btn">Play on this device</a>
+        </div>
+      </div>
+
+      <!-- Online mode -->
+      <div class="card">
+        <div class="card-title"><span>Play Online</span></div>
+        <div class="card-desc">
+          Generate a link, send it to a friend, and play in real time over the internet.
+        </div>
+        <div class="btn-row">
+          <!-- Change online.html if your filename is different -->
+          <a href="134.199.136.38:4444/online.html" class="btn">Play with a friend</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Each player can only have <span>3 pieces</span> on the board at a time,
+      the oldest piece will be deleted.
+    </div>
+  </div>
+</body>
+</html>
