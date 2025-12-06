@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Three-Piece Tic-Tac-Toe</title>
+  <title>Three Piece Tic Tac Toe - Select Mode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Comic-style font -->
@@ -15,275 +15,171 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
       font-family: system-ui, sans-serif;
       background: radial-gradient(circle at top, #202640, #050816 60%);
-      color: #f8f8f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
+      color: #f9fafb;
     }
 
-    .game-shell {
+    .shell {
       width: 100%;
       max-width: 480px;
       background: rgba(13, 19, 38, 0.9);
       border-radius: 1.5rem;
-      padding: 1.25rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      padding: 1.5rem 1.25rem 1.25rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(10px);
     }
 
-    .game-header {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .game-title {
+    .title {
       font-family: "Comic Neue", cursive;
-      font-size: clamp(1.8rem, 5vw, 2.4rem);
-      margin: 0 0 0.5rem;
+      text-align: center;
+      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      margin: 0 0 0.25rem;
       color: #ffda7b;
-      text-shadow: 0 0 10px rgba(255, 218, 123, 0.5);
+      text-shadow: 0 0 10px rgba(255, 218, 123, 0.6);
     }
 
-    .status-main {
+    .subtitle {
       text-align: center;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .board-wrapper {
-      padding: 0.75rem;
-      border-radius: 1.25rem;
-      background: radial-gradient(circle at top, #111827, #020617);
-    }
-
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.5rem;
-      width: 100%;
-    }
-
-    .cell {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 0.75rem;
-      background: linear-gradient(145deg, #0b1020, #111827);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(2.5rem, 14vw, 3.25rem);
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      transition: box-shadow 0.12s ease-out, background 0.15s ease-out, filter 0.15s ease-out;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-    }
-
-    .cell:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
-      filter: brightness(1.05);
-    }
-
-    .cell.x {
-      color: #f97373;
-      text-shadow: 0 0 16px rgba(248, 113, 113, 0.7);
-    }
-
-    .cell.o {
-      color: #60a5fa;
-      text-shadow: 0 0 16px rgba(96, 165, 250, 0.7);
-    }
-
-    /* Highlight for piece about to be removed */
-    .cell.pending-removal {
-      animation: pendingPulse 1s infinite alternate;
-    }
-
-    .cell.x.pending-removal {
-      color: #ffb0b0;
-      text-shadow: 0 0 18px rgba(255, 150, 150, 0.8);
-    }
-
-    .cell.o.pending-removal {
-      color: #9bcaff;
-      text-shadow: 0 0 18px rgba(150, 200, 255, 0.8);
-    }
-
-    @keyframes pendingPulse {
-      from { filter: brightness(1); }
-      to { filter: brightness(1.25); }
-    }
-
-    .cell.win {
-      background: radial-gradient(circle at center, #16a34a 0, #0f172a 70%);
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.9);
-    }
-
-    .controls {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 0.85rem;
+      margin: 0 0 1.25rem;
+      font-size: 0.9rem;
       color: #cbd5f5;
     }
 
-    button {
-      margin-bottom: 0.75rem;
-      border: none;
-      border-radius: 999px;
-      padding: 0.45rem 0.95rem;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-weight: 600;
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
-      color: white;
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.6);
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    .modes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
     }
 
-    button:hover {
+    .card {
+      border-radius: 1rem;
+      padding: 0.9rem 0.95rem;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title span {
+      font-family: "Comic Neue", cursive;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      margin-bottom: 0.65rem;
+    }
+
+    .mode-meta {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .mode-meta strong {
+      color: #e5e7eb;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f9fafb;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.65);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.8);
+      box-shadow: 0 10px 26px rgba(79, 70, 229, 0.8);
       filter: brightness(1.05);
     }
 
-    button:active {
+    .btn:active {
       transform: translateY(1px);
-      box-shadow: 0 5px 12px rgba(79, 70, 229, 0.7);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.7);
       filter: brightness(0.98);
+    }
+
+    .footer-note {
+      margin-top: 1.2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .footer-note span {
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 480px) {
+      .shell {
+        padding: 1.25rem 1rem 1rem;
+        border-radius: 1.25rem;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="game-shell">
-    <div class="game-header">
-      <h1 class="game-title">Three Piece Tic Tac Toe</h1>
-    </div>
+  <div class="shell">
+    <h1 class="title">Three Piece Tic Tac Toe</h1>
+    <p class="subtitle">Pick how you want to play.</p>
 
-    <div class="status-main" id="statusText">X to move</div>
+    <div class="modes">
+      <!-- Local mode -->
+      <div class="card">
+        <div class="card-title"><span>Same Device</span></div>
+        <div class="card-desc">
+          Two players take turns on one screen, using the same device.
+        </div>
+        <div class="btn-row">
+          <!-- Change local.html if your filename is different -->
+          <a href="local.html" class="btn">Play on this device</a>
+        </div>
+      </div>
 
-    <div class="board-wrapper">
-      <div class="board" id="board">
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
+      <!-- Online mode -->
+      <div class="card">
+        <div class="card-title"><span>Play Online</span></div>
+        <div class="card-desc">
+          Generate a link, send it to a friend, and play in real time over the internet.
+        </div>
+        <div class="btn-row">
+          <!-- Change online.html if your filename is different -->
+          <a href="134.199.136.38:4444/online.html" class="btn">Play with a friend</a>
+        </div>
       </div>
     </div>
 
-    <div class="controls">
-      <button id="resetBtn">Reset Game</button>
-      <div>Each player can only have 3 pieces on the board at a time, the oldest piece will be deleted.</div>
+    <div class="footer-note">
+      Each player can only have <span>3 pieces</span> on the board at a time,
+      the oldest piece will be deleted.
     </div>
   </div>
-
-  <script>
-    const boardEl = document.getElementById("board");
-    const statusText = document.getElementById("statusText");
-    const resetBtn = document.getElementById("resetBtn");
-
-    const cells = Array.from(boardEl.querySelectorAll(".cell"));
-
-    const winningLines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-
-    let boardState;
-    let currentPlayer;
-    let gameOver;
-    let playerMoves;
-    let pendingRemoval;
-
-    function initGame() {
-      boardState = Array(9).fill(null);
-      currentPlayer = "X";
-      gameOver = false;
-      playerMoves = { X: [], O: [] };
-      pendingRemoval = { X: null, O: null };
-
-      cells.forEach(cell => {
-        cell.textContent = "";
-        cell.className = "cell";
-      });
-
-      statusText.textContent = "X to move";
-      prepareTurn(currentPlayer);
-    }
-
-    function prepareTurn(player) {
-      cells.forEach(c => c.classList.remove("pending-removal"));
-
-      if (playerMoves[player].length === 3) {
-        const idx = playerMoves[player][0];
-        pendingRemoval[player] = idx;
-        cells[idx].classList.add("pending-removal");
-        statusText.textContent = `${player} to move`;
-      } else {
-        pendingRemoval[player] = null;
-        statusText.textContent = `${player} to move`;
-      }
-    }
-
-    function handleCellClick(e) {
-      if (gameOver) return;
-
-      const cell = e.currentTarget;
-      const idx = Number(cell.dataset.index);
-
-      if (boardState[idx] !== null) return;
-
-      const player = currentPlayer;
-
-      if (pendingRemoval[player] !== null) {
-        const rIdx = pendingRemoval[player];
-        boardState[rIdx] = null;
-        cells[rIdx].textContent = "";
-        cells[rIdx].className = "cell";
-        playerMoves[player].shift();
-        pendingRemoval[player] = null;
-      }
-
-      boardState[idx] = player;
-      cell.textContent = player;
-      cell.classList.add(player.toLowerCase());
-      playerMoves[player].push(idx);
-
-      const winLine = winningLines.find(line =>
-        line.every(index => boardState[index] === player)
-      );
-
-      if (winLine) {
-        gameOver = true;
-        statusText.textContent = `${player} wins`;
-        winLine.forEach(i => cells[i].classList.add("win"));
-        return;
-      }
-
-      currentPlayer = player === "X" ? "O" : "X";
-      prepareTurn(currentPlayer);
-    }
-
-    cells.forEach(cell => cell.addEventListener("click", handleCellClick));
-    resetBtn.addEventListener("click", initGame);
-
-    initGame();
-  </script>
 </body>
 </html>
